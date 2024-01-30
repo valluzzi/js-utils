@@ -6,7 +6,7 @@
  * @param {*} pathname 
  * @returns 
  */
-export const fetchText = async(pathname) => {
+export const fetchText = async(pathname, params) => {
 
     const token = undefined
     //const token = (window.sessionStorage)?window.sessionStorage.getItem("token"):undefined
@@ -22,7 +22,7 @@ export const fetchText = async(pathname) => {
         headers['Authorization'] = `Token ${token}`
     }
 
-    const text = await fetch(pathname, {headers:headers})
+    const text = await fetch(pathname, {...params, headers:headers})
                         .then((response) => response.text())
                         .catch((ex)=>{console.error(ex);return ""})
     return (text.startsWith("<!DOCTYPE")) ? null: text; 
@@ -33,10 +33,10 @@ export const fetchText = async(pathname) => {
  * @param {*} pathname 
  * @returns 
  */
-export const fetchJSON = async(pathname) => {
+export const fetchJSON = async(pathname, params) => {
 
     let res = {}
-    const text = await fetchText(pathname)
+    const text = await fetchText(pathname, params)
     if (text){
         try{
             res = JSON.parse(text);
