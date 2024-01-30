@@ -3,5 +3,5 @@
     "value": 20,
     "description": "hello world",
     "boolean": true,
-    "array": [1,2,3]
+    "this_array": [1,2,3]
 }

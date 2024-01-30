@@ -8,7 +8,7 @@ test("fetchText", async () => {
 })
 
 test("fetchJSON", async () => {
-    const json = await http.fetchJSON("https://raw.githubusercontent.com/valluzzi/js-utils/main/__test__/test.json?x=1")   
+    const json = await http.fetchJSON("https://raw.githubusercontent.com/valluzzi/js-utils/main/__test__/test.json", { cache:"no-cache"})   
     expect(json).toBeDefined()
     console.log(json)
     expect(json.name).toBe("hello")
