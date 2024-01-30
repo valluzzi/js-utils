@@ -22,7 +22,7 @@ export const fetchText = async(pathname, params) => {
         headers['Authorization'] = `Token ${token}`
     }
 
-    const text = await fetch(pathname, {...params, headers:headers, cache:"no-cache"})
+    const text = await fetch(pathname, {...params, headers:headers})
                         .then((response) => response.text())
                         .catch((ex)=>{console.error(ex);return ""})
     return (text.startsWith("<!DOCTYPE")) ? null: text; 
