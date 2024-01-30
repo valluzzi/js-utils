@@ -1,4 +1,6 @@
 {
-    "name": "jquery.iframe-transport.js",
-    "value": 20
+    "name": "hello",
+    "value": 20,
+    "description": "hello world",
+    "boolean": true
 }
